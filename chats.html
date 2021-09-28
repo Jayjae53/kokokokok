@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chats</title>
+  </head>
+  <body>
+    <div class="status-bar">
+      <div class="status-bar__column">
+        <span>No Service</span>
+
+        <i class="fas fa-wifi"></i>
+      </div>
+      <div class="status-bar__column">
+        <span>18:43</span>
+      </div>
+      <div class="status-bar__column">
+        <span>11%</span>
+        <i class="fas fa-battery-full fa-lg"></i>
+        <i class="fas fa-bolt"></i>
+      </div>
+    </div>
+
+    <header class="screen-header">
+      <h1 class="screen-header__title">Chats</h1>
+
+      <div class="screen-header__icons">
+        <span><i class="fas fa-search fa-lg"></i></span>
+        <span><i class="far fa-comment-dots fa-lg"></i></span>
+        <span><i class="fas fa-music fa-lg"></i></span>
+        <span><i class="fas fa-cog fa-lg"></i></span>
+      </div>
+    </header>
+
+    <!-- 여기 a태그에 div태그로 감싸고 그 div에 flexbox로 정렬해줘도 똑같이 정렬된다
+조사,해결해볼것
+-->
+    <main class="main-screen">
+      <!-- 매우매우 유니크하게 ㄷ ㅏ른 곳에서 사용하지 않으니까 id로 -->
+      <!-- 어디에서 쪼개든 다 쪼갤 수 있다. 어렵게 생각하지말자
+생각해봐라. 이미 body라는 한덩어리에서부터 쪼개고 있었다. 즉 아무리 크게 틀을잡아도
+다 쪼갤 수 있다 나눌 수 없는 것은 없다. 중요한건 의미를 잘 파악해서 끊는것
+-->
+      <a href="chat.html">
+        <div class="user-component">
+          <div class="user-component__column">
+            <img
+              src="screenshots/mypic.jpg"
+              alt=""
+              class="user-component__avatar user-component__avatar"
+            />
+
+            <div class="user-component__text">
+              <!-- 굳이 div로 감싸준 이유는 이후에 이쪽도 쪼개야하기 때문에 -->
+              <h1 class="user-component__title">Jae</h1>
+              <h6 class="user-component__subtitle">Please check my kokoa</h6>
+            </div>
+          </div>
+
+          <div class="user-component__column">
+            <span class="user-component__time">21:22</span>
+            <div class="badge">1</div>
+          </div>
+        </div>
+        <!-- 비슷한 구조를 가진 것 같은 컴포넌트를 발견했을 때는
+최대한 많이 갖춰진 것을 기준으로 만들고 나중에 사용할 때 제거해서 사용해야 한다.
+있는거에서 없는걸로 바꿀때는 그냥 지우면 끝인데 없는 거에서 만들면 css가 뒤집힌다
+없는걸 기준으로 컴포넌트를 만들면 안된다
+--></a
+      >
+    </main>
+
+    <!-- 네브안에는 리스트가 사용된다 보통 다른 페이지로 넘어가는 것들이 모인걸 
+      네비게이션 바라한다
+    -->
+    <!-- nav>ul>li*4>a 엔터 -> # -> tap -->
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__btn">
+          <a class="nav__link" href="friends.html"
+            ><i class="far fa-user fa-2x"></i
+          ></a>
+        </li>
+        <li class="nav__btn">
+          <a class="nav__link" href="chats.html">
+            <span class="nav__notification badge">1</span>
+            <i class="fas fa-comment fa-2x"></i
+          ></a>
+        </li>
+        <li class="nav__btn">
+          <a class="nav__link" href="find.html"
+            ><i class="fas fa-search fa-2x"></i
+          ></a>
+        </li>
+        <li class="nav__btn">
+          <a class="nav__link" href="more.html">
+            <div class="redpoint"></div>
+            <i class="fas fa-ellipsis-h fa-2x"></i
+          ></a>
+        </li>
+      </ul>
+    </nav>
+    <div id="no-mobile">
+      <span>Your screen is too big</span>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/7e417db1d0.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

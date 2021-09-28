@@ -1,0 +1,32 @@
+.status-bar {
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  top: 0;
+  z-index: 2;
+  /* 레이어의 높이. 
+  fixed와같이 고정된 위치나 절대적인 위치에 사용할 수 있다
+  기본은 0이며 픽스트가 되면 1 더 높을수록 화면을 뚫고 나오려는 성질
+  */
+  display: flex;
+  justify-content: center;
+  padding: 5px 3px;
+}
+.status-bar__column {
+  width: 33%;
+}
+.status-bar__column:first-child span {
+  margin-right: 5px;
+}
+.status-bar__column:nth-child(2) {
+  display: flex;
+  justify-content: center;
+}
+.status-bar__column:last-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.status-bar__column .fa-battery-full {
+  margin: 0 5px;
+}

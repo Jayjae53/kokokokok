@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to kokoa clone</title>
+  </head>
+  <body>
+    <div class="status-bar">
+      <div class="status-bar__column">
+        <span>No Service</span>
+
+        <i class="fas fa-wifi"></i>
+      </div>
+      <div class="status-bar__column">
+        <span>18:43</span>
+      </div>
+      <div class="status-bar__column">
+        <span>11%</span>
+        <i class="fas fa-battery-full fa-lg"></i>
+        <i class="fas fa-bolt"></i>
+      </div>
+    </div>
+    <!-- --는 띄어쓰기 -->
+    <header class="welcome-header">
+      <h1 class="welcome-header__title">Welcome to kokoa Clone</h1>
+      <p class="welcome-header__text">
+        If you have a kokoa clone If you have a kokoa clone If you have a kokoa
+        clone
+      </p>
+    </header>
+
+    <form action="friends.html" method="get" id="login-form">
+      <!-- action속성으로 인해 이 form 엘리먼트를 누르면 friends.html로 이동된다 -->
+      <input name="username" type="text" placeholder="Email or phone number" />
+      <!-- required 속성을 사용해서 입력 안하면 안넘어가게도 -->
+      <!-- name속성을 사용하면 넘겨줄때 네임과 데이터가 함께 전송된다(url에 표시됨) -->
+      <input name="password" type="password" placeholder="Password" />
+      <input type="submit" value="Log In" />
+      <a href="#">Find kokoa account or password</a>
+      <!-- 앵커를 form안으로 넣은 이유는 이후에 a가 많을거기에 특정지어주기 위해서 -->
+    </form>
+    <div id="no-mobile">
+      <span>Your screen is too big</span>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/7e417db1d0.js"
+      crossorigin="anonymous"
+    ></script>
+    <div id="no-mobile">
+      <span>Your screen is too big</span>
+    </div>
+  </body>
+</html>

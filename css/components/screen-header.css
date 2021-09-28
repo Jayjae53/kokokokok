@@ -1,0 +1,30 @@
+.screen-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px var(--horizontal-space) var(--horizontal-space) 25px;
+  align-items: center;
+  margin-bottom: 15px;
+
+  /* margin-top: 50px; 마진으로하면 위랑 붙어버림 조사,테스트해보기. */
+}
+.screen-header i {
+  margin: 0 8px;
+}
+.screen-header__title {
+  font-size: 32px;
+  font-weight: 800;
+}
+.screen-header__icons span {
+  position: relative;
+}
+@keyframes rotateCog {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+.screen-header__icons .fa-cog:hover {
+  animation: rotateCog 1s linear infinite;
+}

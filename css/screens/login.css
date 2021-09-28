@@ -1,0 +1,73 @@
+.welcome-header {
+  margin: 90px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.welcome-header__title {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+.welcome-header__text {
+  width: 60%;
+  opacity: 0.7;
+}
+
+/* BEM방식을 따르게 되면
+  #login-form input:not([type="submit"])는
+  .login-form__button{} 
+  이렇게 간단하고 보기에 직관적으로 사용할 수 있는 장점이 존재한다
+  */
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  /* 인풋창의 좌우 크기를 줄여준다 */
+}
+
+#login-form input {
+  border: none;
+  padding: 15px 0;
+  font-size: 18px;
+  margin-bottom: 25px;
+  padding: 20px 0;
+}
+
+/* 
+  #login-form input:focus {
+    border-color: var(--yellow);
+  } 이렇게 코드를 작성하면 submit 로그인 인풋창마저 노란색으로 바뀌어서 이상해진다
+  따라서
+  */
+/* 인풋이 submit타입이 아닐때만 적용되게 아래처럼 작성 
+  로그인폼 클래스 아래의 인풋태그들중에서 not type submit 타입이 서브밋이아닌 인풋 모두를
+  */
+
+#login-form input:not([type="submit"]) {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s ease-in;
+}
+#login-form input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+#login-form input:focus {
+  border-color: var(--yellow);
+}
+#login-form input[type="submit"] {
+  background-color: var(--yellow);
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 8px;
+  /* 이 인풋태그 위에서의 커서는 손가락으로 집는 모양이됨 */
+}
+#login-form a {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  /* 즉 부모엘리먼트의 color속성을 받아와서 그대로 사용한다는 말임 
+    default는 black
+    */
+  font-size: 15px;
+}

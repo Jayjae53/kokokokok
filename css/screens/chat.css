@@ -1,0 +1,188 @@
+#chat-screen {
+  background-color: #abc1d1;
+  height: 1000vh;
+}
+#chat-screen .alt-header {
+  position: fixed;
+  /* fixed를 사용하면 span처럼 길이가 짧아진다 */
+  top: 0;
+  /* 이렇게 지정해서 붙여주지 않으면 다른거 움직일때 움직일수도 */
+  width: 100%;
+  box-sizing: border-box;
+  /* background-color: #abc1d1; */
+  /*이렇게 컬러를 주는 이유는 Tuesday jun30 2020이 스크롤 돼서 위로 올라가면 
+  투명하면 다 보이기 떄문에 색으로 가려주는것
+  
+  */
+  z-index: 1;
+}
+@keyframes fadeIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.main-chat {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  animation: fadeIn 0.3s linear;
+}
+.chat__timestamp {
+  color: white;
+  background-color: #92a4b2;
+  padding: 8px 15px;
+  border-radius: 16px;
+  /* display flex의 영향으로 길이가 컨텐트내용만큼으로 줄어듦 */
+  margin-bottom: 30px;
+}
+.message-row {
+  width: 100%;
+  /* 이걸적용하지 않으면 컬럼 디렉션에 이해서 
+  정중앙 가운데로 가는데 이걸 적용하면 땡겨진다
+  */
+  display: flex;
+  margin-bottom: 30px;
+}
+.message-row img {
+  width: 60px;
+
+  height: 60px;
+  border-radius: 30%;
+  margin-right: 15px;
+}
+.message__author {
+  opacity: 0.8;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+  /* span은 margin을 가지지 못한다 */
+}
+.message__info {
+  display: flex;
+  align-items: flex-end;
+}
+.message__bubble {
+  background-color: white;
+  padding: 12px;
+  border-radius: 13px;
+  border-top-left-radius: 5px;
+  margin-right: 5px;
+}
+.message__time {
+  opacity: 0.8;
+  font-size: 13px;
+}
+.message-row--own {
+  justify-content: flex-end;
+}
+.message-row--own .message__bubble {
+  background-color: var(--yellow);
+  border-top-right-radius: 0px;
+  border-top-left-radius: 13px;
+  margin-right: 0px;
+  margin-left: 5px;
+  /* 원래상태로 만들어줌 */
+}
+/* .message-row--own .message__bubble {
+  order: 1;
+}
+.message-row--own .message__time {
+  order: 0;
+}
+order은 플렉스의 자식 엘리먼트들에게 적용할 수 있는 속성이다
+화면의 배열순서를 명시해서 바꿔줄 수 있다
+이건 너무 길어서
+*/
+.message-row--own .message__info {
+  flex-direction: row-reverse;
+}
+/* 이렇게 짧게 가능  */
+/* 간단하게 모더파이어는 클래스에 소속을 추가해줘서
+맨위의 소속을 다르게 지정함으로써 원하는 컴포넌트만 지정해서 변경할수있게한다
+하지만 이렇게 사용할때 이전의 css값들을 원래대로 돌려주는 작업 필요
+*/
+
+.reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  /* 100%이런식으로 적용하는건 다 부모 박스의 크기가 기준 */
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  /* 컨텐츠크기만큼으로 위드 하이트가 줄었지만 width100로 강제로 유지 */
+  padding: 5px 25px;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+.reply i {
+  opacity: 0.7;
+}
+.reply .reply__column:first-child {
+  width: 10%;
+}
+.reply .reply__column:last-child {
+  width: 90%;
+  position: relative;
+}
+.reply input {
+  padding: 10px;
+  width: 100%;
+  /* column은 width를 가지고 있지 않아서 이상하게 적용
+  width:100%이런걸 적용하려면 먼저 부모 엘리먼트에 width값이 있나 확인해야한다
+  */
+  border: var(--main-border);
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+/* .reply__column:last-child i,이렇게 사용하면 모든 i를 지정해버림  그래서 */
+/* vh %의 차이는 $는 부모의 기준 vh는 스크린의 절대적 기준 */
+.reply__column:last-child > i,
+.reply__column:last-child button {
+  position: absolute;
+  right: -3px;
+  top: 2px;
+}
+.reply__column:last-child > i {
+  right: 40px;
+  top: 11px;
+}
+.reply__column:last-child button {
+  background-color: var(--yellow);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+/* 이 인풋창의 변화를 애니메이션으로 하지 않은 이유는 
+이 화면은 무한하게 움직이거나 그런게 아니라 직접 손으로 건들때만 반응하는 것이기 떄문이다
+*/
+.reply .reply__column:first-child,
+.reply .fa-smile-wink,
+.reply button {
+  transition: opacity 0.3s ease-in-out;
+  /* 오패서티의 속성을 조정할 때의 효과 */
+}
+.reply:focus-within .reply__column:first-child,
+.reply:focus-within .fa-smile-wink,
+.reply:focus-within button {
+  opacity: 0;
+}
+.reply input:focus {
+  width: 89vw;
+  /* 이것이 없으면 인풋창의 크기가 늘어나지 않고 옮겨짐 */
+  transform: translateX(-10%) translateY(-80px);
+  /*translateY(-80px)이걸 통해서 input채팅창만 끌어 올려준다  */
+}
+.reply:focus-within {
+  transform: translateY(80px);
+  /* 이렇게만 사용하면 input에 채팅적는창도 내려감 */
+}

@@ -1,0 +1,24 @@
+.badge {
+  background-color: tomato;
+  width: 26px;
+  height: 26px;
+
+  border-radius: 50%;
+  /* span태그라서 width height 적용이 안되기 떄문에 
+    block으로 바꿔줌 */
+  /* span내부에서도 flex사용 가능하다  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+}
+.redpoint {
+  background-color: tomato;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  position: absolute;
+  right: -2px;
+  top: -10px;
+}

@@ -1,0 +1,76 @@
+/* #frineds-display-link { 이렇게도 가능하다
+    알 수 있는것: 태그들 뿐만이 아니라 컨텐츠(글자,이미지)도 전부 
+      자식이기 떄문에 flexbox적용가능하다
+     
+    display: flex;
+    text-align: center;
+    // background-color: red; //
+    justify-content: center;
+  } */
+#frineds-display-link {
+  display: block;
+  /* a태그는 spang태그이기 때문에 
+  width가 딱 내용물의 길이만큼이라서 width를 100%으로 늘려주거나 블럭형태로 바꾸어준것
+  */
+  text-align: center;
+  background-color: #fafafa;
+  padding: 15px 0px;
+  margin-bottom: 15px;
+  margin-top: -15px;
+  /* 마진을 -로 다시 준 이유는 chat에 있는 컴포넌트의 마진을 조정하려고 bottom:15px
+  마진을 줬는데 같은 클래스를 공유하는 이 컴포넌트도 움직여버려서 다시 돌려 놓는 것
+  */
+}
+#frineds-display-link i {
+  color: rgba(0, 0, 0, 0.3);
+}
+#frineds-display-link span {
+  margin: 0px 5px;
+}
+/* 부모자식과같은 연결고리가 있을때 __사용하는것 */
+.frineds-screen {
+  padding: 0px var(--horizontal-space);
+}
+.friends-screen__channel {
+  margin-top: 25px;
+  border-top: var(--main-border);
+  padding-top: 15px;
+}
+.friends-screen__channel-header {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.4);
+}
+#splash-screen {
+  background-color: var(--yellow);
+  position: absolute;
+  width: 100vh;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+
+  animation: hideSplashScreen 0.3s ease-in-out forwards;
+  animation-delay: 2s;
+  /* aniation-delay:2s;를 사용하면 브라우저를 실행하고 애니메이션이 2초뒤에 실행된다 */
+  /* 애니메이션 마지막에 forwards속성을 추가하면 애니메이션의 마지막단계에서 유지된다
+  그래서 스크린이 투명해지고 원래대로 돌아가지 않을 수 있게 됨
+  */
+}
+@keyframes hideSplashScreen {
+  from {
+    opacity: 1;
+  }
+  /* 이렇게 했을 때 화면이 다시 스크린이 가려진 상태로 돌아가는 이유는
+  애니메이션이 끝났기 떄문이다
+  */
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* visibility로 안보이게 할 수 있다 */

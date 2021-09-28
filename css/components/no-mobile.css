@@ -1,0 +1,17 @@
+#no-mobile {
+  position: absolute;
+  z-index: 99;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0%;
+}
+/* 모든 html문서에 #no-mobile의 컨텐트 추가ㅣ해줘야함 */
+@media screen and (max-width: 550px) {
+  #no-mobile {
+    display: none;
+  }
+}
